@@ -8,6 +8,6 @@ target 'Party Organizer' do
   # Pods for Party Organizer
 
     pod 'RxSwift'
-
+    pod 'RxAlamofire'
 
 end

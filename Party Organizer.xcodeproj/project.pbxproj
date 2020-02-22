@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		351B9DE92401A8A300546A01 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351B9DE82401A8A300546A01 /* APIClient.swift */; };
+		351B9DEE2401B04F00546A01 /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351B9DED2401B04F00546A01 /* APIError.swift */; };
+		351B9DF02401B0B600546A01 /* Members.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351B9DEF2401B0B600546A01 /* Members.swift */; };
+		351B9DF22401B7FA00546A01 /* Observable+Map.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351B9DF12401B7FA00546A01 /* Observable+Map.swift */; };
 		35274B51240198B600FB1C31 /* ProfilesDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35274B50240198B600FB1C31 /* ProfilesDataModel.swift */; };
 		35F087B7240172A70070BF42 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35F087B6240172A70070BF42 /* AppDelegate.swift */; };
 		35F087B9240172A70070BF42 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35F087B8240172A70070BF42 /* SceneDelegate.swift */; };
@@ -18,6 +22,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		351B9DE82401A8A300546A01 /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
+		351B9DED2401B04F00546A01 /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
+		351B9DEF2401B0B600546A01 /* Members.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Members.swift; sourceTree = "<group>"; };
+		351B9DF12401B7FA00546A01 /* Observable+Map.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Observable+Map.swift"; sourceTree = "<group>"; };
 		35274B50240198B600FB1C31 /* ProfilesDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilesDataModel.swift; sourceTree = "<group>"; };
 		35F087B3240172A70070BF42 /* Party Organizer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Party Organizer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		35F087B6240172A70070BF42 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -44,6 +52,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		351B9DE72401A89100546A01 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				351B9DE82401A8A300546A01 /* APIClient.swift */,
+				351B9DED2401B04F00546A01 /* APIError.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		351B9DEC2401AEDC00546A01 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				351B9DF12401B7FA00546A01 /* Observable+Map.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		35274B522401993400FB1C31 /* API */ = {
 			isa = PBXGroup;
 			children = (
@@ -81,6 +106,7 @@
 		35F087B5240172A70070BF42 /* Party Organizer */ = {
 			isa = PBXGroup;
 			children = (
+				351B9DE72401A89100546A01 /* API */,
 				35F087CF240174650070BF42 /* Storyboards */,
 				35F087CE2401745B0070BF42 /* Utilities */,
 				35F087CD240174540070BF42 /* Views */,
@@ -99,6 +125,7 @@
 			isa = PBXGroup;
 			children = (
 				35274B522401993400FB1C31 /* API */,
+				351B9DEF2401B0B600546A01 /* Members.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -128,6 +155,7 @@
 		35F087CE2401745B0070BF42 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				351B9DEC2401AEDC00546A01 /* Extensions */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -275,8 +303,12 @@
 			files = (
 				35F087BB240172A70070BF42 /* ViewController.swift in Sources */,
 				35274B51240198B600FB1C31 /* ProfilesDataModel.swift in Sources */,
+				351B9DF02401B0B600546A01 /* Members.swift in Sources */,
 				35F087B7240172A70070BF42 /* AppDelegate.swift in Sources */,
+				351B9DE92401A8A300546A01 /* APIClient.swift in Sources */,
+				351B9DF22401B7FA00546A01 /* Observable+Map.swift in Sources */,
 				35F087B9240172A70070BF42 /* SceneDelegate.swift in Sources */,
+				351B9DEE2401B04F00546A01 /* APIError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
