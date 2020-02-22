@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		35274B51240198B600FB1C31 /* ProfilesDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35274B50240198B600FB1C31 /* ProfilesDataModel.swift */; };
 		35F087B7240172A70070BF42 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35F087B6240172A70070BF42 /* AppDelegate.swift */; };
 		35F087B9240172A70070BF42 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35F087B8240172A70070BF42 /* SceneDelegate.swift */; };
 		35F087BB240172A70070BF42 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35F087BA240172A70070BF42 /* ViewController.swift */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		35274B50240198B600FB1C31 /* ProfilesDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilesDataModel.swift; sourceTree = "<group>"; };
 		35F087B3240172A70070BF42 /* Party Organizer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Party Organizer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		35F087B6240172A70070BF42 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		35F087B8240172A70070BF42 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -42,6 +44,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		35274B522401993400FB1C31 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				35274B532401993A00FB1C31 /* Response */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		35274B532401993A00FB1C31 /* Response */ = {
+			isa = PBXGroup;
+			children = (
+				35274B50240198B600FB1C31 /* ProfilesDataModel.swift */,
+			);
+			path = Response;
+			sourceTree = "<group>";
+		};
 		35F087AA240172A70070BF42 = {
 			isa = PBXGroup;
 			children = (
@@ -80,6 +98,7 @@
 		35F087CA240174420070BF42 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				35274B522401993400FB1C31 /* API */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -255,6 +274,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				35F087BB240172A70070BF42 /* ViewController.swift in Sources */,
+				35274B51240198B600FB1C31 /* ProfilesDataModel.swift in Sources */,
 				35F087B7240172A70070BF42 /* AppDelegate.swift in Sources */,
 				35F087B9240172A70070BF42 /* SceneDelegate.swift in Sources */,
 			);
