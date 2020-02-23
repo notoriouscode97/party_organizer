@@ -10,5 +10,5 @@ import Foundation
 import RxSwift
 
 struct Members {
-   static var allMembers: BehaviorSubject = BehaviorSubject(value: [])
+   static var allMembers: BehaviorSubject<[Profile]> = BehaviorSubject(value: [])
 }

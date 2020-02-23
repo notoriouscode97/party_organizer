@@ -9,5 +9,6 @@ target 'Party Organizer' do
 
     pod 'RxSwift'
     pod 'RxAlamofire'
-
+    pod 'RxCocoa'
+    pod 'Kingfisher'
 end

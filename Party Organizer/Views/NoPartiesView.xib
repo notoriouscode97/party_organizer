@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="NoPartiesView" customModule="Party_Organizer" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You have no party." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dfJ-vK-IRP">
+                    <rect key="frame" x="20" y="237" width="374" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xRq-Wf-Q9x">
+                    <rect key="frame" x="20" y="420.5" width="374" height="55"/>
+                    <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="55" id="dVo-Fa-yQ5"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                    <state key="normal" title="Create Party">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Create some!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FTo-F2-eJB">
+                    <rect key="frame" x="20" y="262" width="374" height="21"/>
+                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="FTo-F2-eJB" firstAttribute="leading" secondItem="xRq-Wf-Q9x" secondAttribute="leading" id="KCm-ja-q0N"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="xRq-Wf-Q9x" secondAttribute="trailing" constant="20" id="NkH-lm-kd9"/>
+                <constraint firstItem="FTo-F2-eJB" firstAttribute="trailing" secondItem="xRq-Wf-Q9x" secondAttribute="trailing" id="O7V-kL-qBN"/>
+                <constraint firstItem="xRq-Wf-Q9x" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="VNO-Uj-pVf"/>
+                <constraint firstItem="FTo-F2-eJB" firstAttribute="top" secondItem="dfJ-vK-IRP" secondAttribute="bottom" constant="4" id="XvI-Ic-fum"/>
+                <constraint firstItem="xRq-Wf-Q9x" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="cDn-b6-hNR"/>
+                <constraint firstItem="dfJ-vK-IRP" firstAttribute="trailing" secondItem="FTo-F2-eJB" secondAttribute="trailing" id="fHy-3y-afO"/>
+                <constraint firstItem="dfJ-vK-IRP" firstAttribute="leading" secondItem="FTo-F2-eJB" secondAttribute="leading" id="rkI-E6-g0h"/>
+                <constraint firstItem="xRq-Wf-Q9x" firstAttribute="top" secondItem="FTo-F2-eJB" secondAttribute="bottom" constant="137.5" id="uyE-l5-Rp9"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outlet property="createPartyButton" destination="xRq-Wf-Q9x" id="LRs-mp-Owr"/>
+            </connections>
+            <point key="canvasLocation" x="137.68115942028987" y="127.90178571428571"/>
+        </view>
+    </objects>
+</document>

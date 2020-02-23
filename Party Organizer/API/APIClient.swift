@@ -34,12 +34,12 @@ struct APIClient {
     private let membersEndpoint = "profiles.json"
     
     //MARK: Get Members from api and bind to members property
-    func getMembers()  {
+    func getMembers() {
         bypassURLAuthentication()
         
         RxAlamofire.requestData(.get, baseURL + membersEndpoint)
-            .observeOn(MainScheduler.instance)
             .subscribeOn(ConcurrentDispatchQueueScheduler(qos: .background))
+            .observeOn(MainScheduler.instance)
             .expectingObject(ofType: Profiles.self)
             .subscribe(onNext: { result in
                 switch result {
