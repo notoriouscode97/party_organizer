@@ -14,10 +14,10 @@ class HomeViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
-    fileprivate var viewModel: HomeViewModel = HomeViewModel()
     fileprivate let partyDatasource = DataSource()
     
     private var allParties: [Party] = []
+    private let bag = DisposeBag()
 
     private lazy var noPartiesView: NoPartiesView = {
         let noPartiesView: NoPartiesView = NoPartiesView.fromNib()
@@ -25,9 +25,7 @@ class HomeViewController: UIViewController {
         noPartiesView.createPartyButton.layer.cornerRadius = 10
         return noPartiesView
     }()
-    
-    private let bag = DisposeBag()
-    
+        
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
@@ -36,6 +34,7 @@ class HomeViewController: UIViewController {
     }
     
     func setupUI() {
+        APIClient.shared.getMembers()
         navigationItem.title = "Parties"
         let addButton = UIBarButtonItem(title: "Add", style: .plain, target: nil, action: nil)
         navigationItem.rightBarButtonItem = addButton
@@ -59,20 +58,20 @@ class HomeViewController: UIViewController {
             .disposed(by: bag)
         
         tableView.rx.itemSelected
-        .asDriver()
-        .throttle(RxTimeInterval.milliseconds(500))
-        .drive(onNext: { [weak self] indexPath in
-            guard let this = self, let parties = try? Parties.allParties.value() else { return }
-            let party = parties.filter{ $0.id == indexPath.row }.first
-            if let `party` = party {
-                let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                let vc = storyboard.instantiateViewController(withIdentifier: CRUDPartyViewController.ID) as! CRUDPartyViewController
-                vc.currentMode = .ReadOrUpdate
-                vc.party = party
-                this.navigationController?.show(vc, sender: self)
-            }
-        })
-        .disposed(by: bag)
+            .asDriver()
+            .throttle(RxTimeInterval.milliseconds(500))
+            .drive(onNext: { [weak self] indexPath in
+                guard let this = self, let parties = try? Parties.allParties.value() else { return }
+                let party = parties.filter{ $0.id == indexPath.row }.first
+                if let `party` = party {
+                    let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                    let vc = storyboard.instantiateViewController(withIdentifier: CRUDPartyViewController.ID) as! CRUDPartyViewController
+                    vc.currentMode = .ReadOrUpdate
+                    vc.party = party
+                    this.navigationController?.show(vc, sender: self)
+                }
+            })
+            .disposed(by: bag)
         
         tableView.rx.itemDeleted
             .asDriver()
@@ -128,8 +127,8 @@ class HomeViewController: UIViewController {
             .bind(to: tableView.rx.items(dataSource: partyDatasource))
             .disposed(by: bag)
     }
-
-
+    
+    
 }
 
 extension HomeViewController: UITableViewDelegate {

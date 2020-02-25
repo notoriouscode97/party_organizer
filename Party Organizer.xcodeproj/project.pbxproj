@@ -14,7 +14,6 @@
 		35031EEF240436CC007C42BB /* CRUDPartyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35031EEE240436CC007C42BB /* CRUDPartyViewController.swift */; };
 		35031EF1240441A7007C42BB /* CRUDPartyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35031EF0240441A7007C42BB /* CRUDPartyTableViewCell.swift */; };
 		35031EF324044274007C42BB /* CRUDPartyCellBlueprint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35031EF224044274007C42BB /* CRUDPartyCellBlueprint.swift */; };
-		350C9AE62402A7A600BC401C /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 350C9AE52402A7A600BC401C /* HomeViewModel.swift */; };
 		350C9AE82402B14500BC401C /* HomeCellBlueprint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 350C9AE72402B14500BC401C /* HomeCellBlueprint.swift */; };
 		350C9AEA2402B1CB00BC401C /* PartyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 350C9AE92402B1CB00BC401C /* PartyModel.swift */; };
 		350C9AEC2402B26F00BC401C /* HomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 350C9AEB2402B26F00BC401C /* HomeTableViewCell.swift */; };
@@ -64,7 +63,6 @@
 		35031EEE240436CC007C42BB /* CRUDPartyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CRUDPartyViewController.swift; sourceTree = "<group>"; };
 		35031EF0240441A7007C42BB /* CRUDPartyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CRUDPartyTableViewCell.swift; sourceTree = "<group>"; };
 		35031EF224044274007C42BB /* CRUDPartyCellBlueprint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CRUDPartyCellBlueprint.swift; sourceTree = "<group>"; };
-		350C9AE52402A7A600BC401C /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		350C9AE72402B14500BC401C /* HomeCellBlueprint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCellBlueprint.swift; sourceTree = "<group>"; };
 		350C9AE92402B1CB00BC401C /* PartyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartyModel.swift; sourceTree = "<group>"; };
 		350C9AEB2402B26F00BC401C /* HomeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewCell.swift; sourceTree = "<group>"; };
@@ -235,7 +233,6 @@
 		35F087CB240174480070BF42 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				350C9AE52402A7A600BC401C /* HomeViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -460,7 +457,6 @@
 				3524626E24029E64002DC602 /* View+Nib.swift in Sources */,
 				350C9AF52402B5E700BC401C /* ArrayDataSource.swift in Sources */,
 				352462772402A0F8002DC602 /* ViewLoadable.swift in Sources */,
-				350C9AE62402A7A600BC401C /* HomeViewModel.swift in Sources */,
 				350C9AF02402B49C00BC401C /* Cell.swift in Sources */,
 				35031EED24042995007C42BB /* PartyMemberPreviewViewController.swift in Sources */,
 				351B9DEE2401B04F00546A01 /* APIError.swift in Sources */,

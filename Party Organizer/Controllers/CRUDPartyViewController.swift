@@ -92,7 +92,6 @@ class CRUDPartyViewController: UIViewController {
     func setupActions() {
         //Create new party
         if currentMode == .Create {
-//            navigationItem.rightBarButtonItem!.rx.tap
             createBarButton.rx.tap
                 .asDriver()
                 .throttle(RxTimeInterval.milliseconds(500))
