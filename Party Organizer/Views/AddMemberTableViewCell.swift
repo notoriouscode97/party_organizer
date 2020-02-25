@@ -12,6 +12,9 @@ class AddMemberTableViewCell: UITableViewCell {
     @IBOutlet weak var partyNameLabel: UILabel!
     @IBOutlet weak var checkMarkImageView: UIImageView!
 
+    var memberThatEntered: Profile?
+    var containedInParty: Bool = false
+
     override func awakeFromNib() {
         super.awakeFromNib()
         setup()
@@ -22,8 +25,17 @@ class AddMemberTableViewCell: UITableViewCell {
         selectionStyle = .none
     }
     
-    func configure(party: Party) {
+    func configure(party: Party, memberThatEntered: Profile) {
         partyNameLabel.text = party.name
+        
+        let containsElement = party.members.contains(where: {
+            $0.id == memberThatEntered.id
+        })
+        if containsElement {
+            checkMarkImageView.isHidden = false
+            containedInParty = true
+        }
+        
     }
 }
 

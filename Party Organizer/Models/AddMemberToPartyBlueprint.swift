@@ -10,9 +10,11 @@ import UIKit
 
 class AddMemberToPartyRowBlueprint {
     let party: Party
+    let member: Profile
     
-    init(party: Party) {
+    init(party: Party, member: Profile) {
         self.party = party
+        self.member = member
     }
 }
 
@@ -28,7 +30,7 @@ extension AddMemberToPartyRowBlueprint : CellBlueprint {
     
     func configure(cell: Cell) -> Cell {
         let addMemberToPartyCell = cell as! AddMemberTableViewCell
-        addMemberToPartyCell.configure(party: party)
+        addMemberToPartyCell.configure(party: party, memberThatEntered: member)
         return addMemberToPartyCell
     }
 }
