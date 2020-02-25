@@ -16,6 +16,8 @@ class HomeViewController: UIViewController {
     
     fileprivate var viewModel: HomeViewModel = HomeViewModel()
     fileprivate let partyDatasource = DataSource()
+    
+    private var allParties: [Party] = []
 
     private lazy var noPartiesView: NoPartiesView = {
         let noPartiesView: NoPartiesView = NoPartiesView.fromNib()
@@ -74,14 +76,15 @@ class HomeViewController: UIViewController {
         
         tableView.rx.itemDeleted
             .asDriver()
-            .drive(onNext: {
+            .drive(onNext: { [weak self] in
                 print($0)
-                let members = try? Members.allMembers.value()
+                guard let this = self else { return }
+                let parties = this.allParties
                 let row = $0.row
                 
-                if let membersWithDeletedMember = members?.filter({ $0.id != row }) {
-                    Members.allMembers.onNext(membersWithDeletedMember)
-                }
+                let allPartiesWithDeletedParties = parties.filter({ $0.id != row })
+                Parties.allParties.onNext(allPartiesWithDeletedParties)
+                
             })
             .disposed(by: bag)
         
@@ -102,7 +105,18 @@ class HomeViewController: UIViewController {
         Parties.allParties.asObservable()
             .subscribeOn(ConcurrentDispatchQueueScheduler(qos: .background))
             .observeOn(MainScheduler.instance)
+            .do(onNext: { [weak self] allParties in
+                self?.allParties = allParties
+            })
             .map{ $0.map{ HomeCellRowBlueprint(party: $0) } }
+            .do(onNext: { [weak self] in
+                guard let this = self else { return }
+                if $0.isEmpty {
+                    this.noPartiesView.isHidden = false
+                    this.view.addSubview(this.noPartiesView)
+                    this.tableView.isHidden = true
+                }
+            })
             .filter{!$0.isEmpty}
             .debug("bind elementi", trimOutput: true)
             .do(onNext: { [weak self] _ in

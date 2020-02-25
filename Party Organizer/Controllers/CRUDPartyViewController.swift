@@ -30,9 +30,13 @@ class CRUDPartyViewController: UIViewController {
     
     private let bag = DisposeBag()
     fileprivate let membersDatasource = DataSource()
+
     let tapGesture = UITapGestureRecognizer()
     let tapGestureForDismiss = UITapGestureRecognizer()
-    
+    let createBarButton = UIBarButtonItem(title: "Create", style: .plain, target: nil, action: nil)
+    let editBarButton = UIBarButtonItem(title: "Edit", style: .plain, target: nil, action: nil)
+    let saveBarButton = UIBarButtonItem(title: "Save", style: .plain, target: nil, action: nil)
+
     var party: Party?
     var selectedMembers: BehaviorSubject<[Profile]> = BehaviorSubject(value: [])
     var currentMode: CRUDMode = .Create
@@ -67,7 +71,7 @@ class CRUDPartyViewController: UIViewController {
         membersView.addGestureRecognizer(tapGesture)
         view.addGestureRecognizer(tapGestureForDismiss)
         
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Create", style: .plain, target: nil, action: nil)
+        navigationItem.rightBarButtonItem = createBarButton
         
         guard let `party` = party else { return }
         party.members.count != 0 ? (membersLabel.text = "Members(\(party.members.count))") : (membersLabel.text = "Members")
@@ -76,13 +80,20 @@ class CRUDPartyViewController: UIViewController {
         partyNameTextField.text = party.name
         dateAndTimeLabel.text = "\(party.date)"
         dateAndTimeTextField.text = "\(party.date)"
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Edit", style: .plain, target: nil, action: nil)
+        navigationItem.rightBarButtonItems = [editBarButton, saveBarButton]
+        partyNameTextField.isEnabled = false
+        dateAndTimeTextField.isEnabled = false
+        descriptionTextView.isEditable = false
+        membersView.isUserInteractionEnabled = false
+        tableView.isUserInteractionEnabled = false
+        saveBarButton.isEnabled = false
     }
     
     func setupActions() {
         //Create new party
         if currentMode == .Create {
-            navigationItem.rightBarButtonItem!.rx.tap
+//            navigationItem.rightBarButtonItem!.rx.tap
+            createBarButton.rx.tap
                 .asDriver()
                 .throttle(RxTimeInterval.milliseconds(500))
                 .drive(onNext: { [weak self] _ in
@@ -104,30 +115,41 @@ class CRUDPartyViewController: UIViewController {
                 .disposed(by: bag)
         } else if currentMode == .ReadOrUpdate {
             //Update
-            navigationItem.rightBarButtonItem!.rx.tap
+            editBarButton.rx.tap
                 .asDriver()
                 .throttle(RxTimeInterval.milliseconds(500))
                 .drive(onNext: { [weak self] _ in
-                    let partiesOpt = try? Parties.allParties.value()
-                    guard let this = self, var `parties` = partiesOpt, let members = try? self?.selectedMembers.value() else { return }
-                    this.party?.name = this.partyNameLabel.text ?? ""
-                    this.party?.date = this.datePicker.date
-                    this.party?.description = this.descriptionTextView.text ?? ""
-                    this.party?.members = members
-                    parties.removeAll { $0.id == this.party?.id }
-                    if let currentParty = this.party {
-                        parties.append(currentParty)
-                        Parties.allParties.onNext(parties)
-                        this.navigationController?.popViewController(animated: true)
-                    }
+                    guard let this = self else { return }
+                    this.partyNameTextField.isEnabled = true
+                    this.dateAndTimeTextField.isEnabled = true
+                    this.descriptionTextView.isEditable = true
+                    this.membersView.isUserInteractionEnabled = true
+                    this.tableView.isUserInteractionEnabled = true
+                    this.editBarButton.isEnabled = false
+                    this.saveBarButton.isEnabled = true
                 })
                 .disposed(by: bag)
-        
-            //Mode is Read only forbit any editing
-            partyNameTextField.isEnabled = false
-            dateAndTimeTextField.isEnabled = false
-            descriptionTextView.isEditable = false
-            membersView.isUserInteractionEnabled = false
+            
+            saveBarButton.rx.tap
+            .asDriver()
+            .throttle(RxTimeInterval.milliseconds(500))
+            .drive(onNext: { [weak self] _ in
+                let partiesOpt = try? Parties.allParties.value()
+                guard let this = self, var `parties` = partiesOpt, let members = try? self?.selectedMembers.value() else { return }
+                this.party?.name = this.partyNameLabel.text ?? ""
+                this.party?.date = this.datePicker.date
+                this.party?.description = this.descriptionTextView.text ?? ""
+                this.party?.members = members
+                parties.removeAll { $0.id == this.party?.id }
+                if let currentParty = this.party {
+                    parties.append(currentParty)
+                    Parties.allParties.onNext(parties)
+                    this.editBarButton.isEnabled = true
+                    this.saveBarButton.isEnabled = false
+                    this.navigationController?.popViewController(animated: true)
+                }
+            })
+            .disposed(by: bag)
         }
         
         tableView.rx.itemDeleted
