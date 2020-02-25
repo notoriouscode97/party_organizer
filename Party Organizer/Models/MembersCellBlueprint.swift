@@ -12,9 +12,13 @@ import UIKit
 class MembersCellRowBlueprint {
     
     let member: Profile
+    let isPartyMemberScreen: Bool
+    let party: Party?
     
-    init(member: Profile) {
+    init(member: Profile, isPartyMemberScreen: Bool = false, party: Party? = nil) {
         self.member = member
+        self.isPartyMemberScreen = isPartyMemberScreen
+        self.party = party
     }
 }
 
@@ -30,7 +34,7 @@ extension MembersCellRowBlueprint : CellBlueprint {
     
     func configure(cell: Cell) -> Cell {
         let membersCell = cell as! MembersTableViewCell
-        membersCell.configure(member: member)
+        membersCell.configure(member: member, isPartyMemberScreen: isPartyMemberScreen, party: party)
         return membersCell
     }
 }

@@ -12,6 +12,9 @@ class MembersTableViewCell: UITableViewCell {
    
     @IBOutlet weak var profileImageView: CustomImageView!
     @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var checkMarkImageView: UIImageView!
+    
+    var containedInParty: Bool = false
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -19,10 +22,24 @@ class MembersTableViewCell: UITableViewCell {
     }
     
     private func setup() {
+        checkMarkImageView.isHidden = true
         selectionStyle = .none
     }
     
-    func configure(member: Profile) {
+    func configure(member: Profile, isPartyMemberScreen: Bool, party: Party?) {
+        if isPartyMemberScreen {
+            accessoryType = .none
+            if let `party` = party {
+                let containsElement = party.members.contains(where:  {
+                    $0.id == member.id
+                })
+                if containsElement {
+                    checkMarkImageView.isHidden = false
+                    containedInParty = true
+                }
+            }
+           
+        }
         nameLabel.text = member.username
         
         guard let photo = member.photo, let url = URL(string: photo) else { return }

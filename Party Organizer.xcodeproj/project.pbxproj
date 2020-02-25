@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		35031EE7240420D2007C42BB /* AddMemberToPartyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35031EE6240420D2007C42BB /* AddMemberToPartyViewController.swift */; };
+		35031EE92404217F007C42BB /* AddMemberTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35031EE82404217F007C42BB /* AddMemberTableViewCell.swift */; };
+		35031EEB240422B4007C42BB /* AddMemberToPartyBlueprint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35031EEA240422B4007C42BB /* AddMemberToPartyBlueprint.swift */; };
+		35031EED24042995007C42BB /* PartyMemberPreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35031EEC24042995007C42BB /* PartyMemberPreviewViewController.swift */; };
+		35031EEF240436CC007C42BB /* CRUDPartyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35031EEE240436CC007C42BB /* CRUDPartyViewController.swift */; };
+		35031EF1240441A7007C42BB /* CRUDPartyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35031EF0240441A7007C42BB /* CRUDPartyTableViewCell.swift */; };
+		35031EF324044274007C42BB /* CRUDPartyCellBlueprint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35031EF224044274007C42BB /* CRUDPartyCellBlueprint.swift */; };
 		350C9AE62402A7A600BC401C /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 350C9AE52402A7A600BC401C /* HomeViewModel.swift */; };
 		350C9AE82402B14500BC401C /* HomeCellBlueprint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 350C9AE72402B14500BC401C /* HomeCellBlueprint.swift */; };
 		350C9AEA2402B1CB00BC401C /* PartyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 350C9AE92402B1CB00BC401C /* PartyModel.swift */; };
@@ -27,6 +34,7 @@
 		350C9B092402DD5400BC401C /* ProfileImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 350C9B082402DD5400BC401C /* ProfileImageTableViewCell.swift */; };
 		350C9B0B2402DD6E00BC401C /* ProfileLabelsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 350C9B0A2402DD6E00BC401C /* ProfileLabelsTableViewCell.swift */; };
 		350C9B0D2402DD7F00BC401C /* ProfileMultipleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 350C9B0C2402DD7F00BC401C /* ProfileMultipleTableViewCell.swift */; };
+		350C9B0F2402EB8200BC401C /* AllParties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 350C9B0E2402EB8200BC401C /* AllParties.swift */; };
 		351B9DE92401A8A300546A01 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351B9DE82401A8A300546A01 /* APIClient.swift */; };
 		351B9DEE2401B04F00546A01 /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351B9DED2401B04F00546A01 /* APIError.swift */; };
 		351B9DF02401B0B600546A01 /* Members.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351B9DEF2401B0B600546A01 /* Members.swift */; };
@@ -49,6 +57,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		35031EE6240420D2007C42BB /* AddMemberToPartyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMemberToPartyViewController.swift; sourceTree = "<group>"; };
+		35031EE82404217F007C42BB /* AddMemberTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMemberTableViewCell.swift; sourceTree = "<group>"; };
+		35031EEA240422B4007C42BB /* AddMemberToPartyBlueprint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMemberToPartyBlueprint.swift; sourceTree = "<group>"; };
+		35031EEC24042995007C42BB /* PartyMemberPreviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartyMemberPreviewViewController.swift; sourceTree = "<group>"; };
+		35031EEE240436CC007C42BB /* CRUDPartyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CRUDPartyViewController.swift; sourceTree = "<group>"; };
+		35031EF0240441A7007C42BB /* CRUDPartyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CRUDPartyTableViewCell.swift; sourceTree = "<group>"; };
+		35031EF224044274007C42BB /* CRUDPartyCellBlueprint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CRUDPartyCellBlueprint.swift; sourceTree = "<group>"; };
 		350C9AE52402A7A600BC401C /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		350C9AE72402B14500BC401C /* HomeCellBlueprint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCellBlueprint.swift; sourceTree = "<group>"; };
 		350C9AE92402B1CB00BC401C /* PartyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartyModel.swift; sourceTree = "<group>"; };
@@ -69,6 +84,7 @@
 		350C9B082402DD5400BC401C /* ProfileImageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImageTableViewCell.swift; sourceTree = "<group>"; };
 		350C9B0A2402DD6E00BC401C /* ProfileLabelsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileLabelsTableViewCell.swift; sourceTree = "<group>"; };
 		350C9B0C2402DD7F00BC401C /* ProfileMultipleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileMultipleTableViewCell.swift; sourceTree = "<group>"; };
+		350C9B0E2402EB8200BC401C /* AllParties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllParties.swift; sourceTree = "<group>"; };
 		351B9DE82401A8A300546A01 /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
 		351B9DED2401B04F00546A01 /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
 		351B9DEF2401B0B600546A01 /* Members.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Members.swift; sourceTree = "<group>"; };
@@ -209,6 +225,9 @@
 				350C9AE72402B14500BC401C /* HomeCellBlueprint.swift */,
 				350C9AE92402B1CB00BC401C /* PartyModel.swift */,
 				350C9AFA2402CAEF00BC401C /* MembersCellBlueprint.swift */,
+				350C9B0E2402EB8200BC401C /* AllParties.swift */,
+				35031EEA240422B4007C42BB /* AddMemberToPartyBlueprint.swift */,
+				35031EF224044274007C42BB /* CRUDPartyCellBlueprint.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -227,6 +246,9 @@
 				35F087BA240172A70070BF42 /* HomeViewController.swift */,
 				350C9AF82402CA2200BC401C /* MembersViewController.swift */,
 				350C9B042402D49500BC401C /* ProfileViewController.swift */,
+				35031EE6240420D2007C42BB /* AddMemberToPartyViewController.swift */,
+				35031EEC24042995007C42BB /* PartyMemberPreviewViewController.swift */,
+				35031EEE240436CC007C42BB /* CRUDPartyViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -241,6 +263,8 @@
 				350C9B082402DD5400BC401C /* ProfileImageTableViewCell.swift */,
 				350C9B0A2402DD6E00BC401C /* ProfileLabelsTableViewCell.swift */,
 				350C9B0C2402DD7F00BC401C /* ProfileMultipleTableViewCell.swift */,
+				35031EE82404217F007C42BB /* AddMemberTableViewCell.swift */,
+				35031EF0240441A7007C42BB /* CRUDPartyTableViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -399,8 +423,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				35031EF1240441A7007C42BB /* CRUDPartyTableViewCell.swift in Sources */,
 				350C9AEA2402B1CB00BC401C /* PartyModel.swift in Sources */,
 				350C9AFD2402CB7300BC401C /* MembersTableViewCell.swift in Sources */,
+				35031EE7240420D2007C42BB /* AddMemberToPartyViewController.swift in Sources */,
 				350C9AE82402B14500BC401C /* HomeCellBlueprint.swift in Sources */,
 				352462732402A076002DC602 /* NibReusable.swift in Sources */,
 				35F087BB240172A70070BF42 /* HomeViewController.swift in Sources */,
@@ -408,8 +434,11 @@
 				350C9B012402CD0A00BC401C /* LazyImageLoading.swift in Sources */,
 				35274B51240198B600FB1C31 /* ProfilesDataModel.swift in Sources */,
 				351B9DF02401B0B600546A01 /* Members.swift in Sources */,
+				350C9B0F2402EB8200BC401C /* AllParties.swift in Sources */,
+				35031EF324044274007C42BB /* CRUDPartyCellBlueprint.swift in Sources */,
 				350C9AF32402B5AA00BC401C /* Datasource.swift in Sources */,
 				350C9AEC2402B26F00BC401C /* HomeTableViewCell.swift in Sources */,
+				35031EEB240422B4007C42BB /* AddMemberToPartyBlueprint.swift in Sources */,
 				350C9AF72402BE5A00BC401C /* Observable+Optional.swift in Sources */,
 				350C9B052402D49500BC401C /* ProfileViewController.swift in Sources */,
 				35F087B7240172A70070BF42 /* AppDelegate.swift in Sources */,
@@ -417,6 +446,8 @@
 				350C9B032402D17800BC401C /* UIImage+RoundImage.swift in Sources */,
 				351B9DE92401A8A300546A01 /* APIClient.swift in Sources */,
 				350C9B092402DD5400BC401C /* ProfileImageTableViewCell.swift in Sources */,
+				35031EEF240436CC007C42BB /* CRUDPartyViewController.swift in Sources */,
+				35031EE92404217F007C42BB /* AddMemberTableViewCell.swift in Sources */,
 				352462752402A0CF002DC602 /* Reusable.swift in Sources */,
 				352462712402A06D002DC602 /* NibLoadable.swift in Sources */,
 				350C9AFF2402CCC200BC401C /* UIImage+FetchImage.swift in Sources */,
@@ -431,6 +462,7 @@
 				352462772402A0F8002DC602 /* ViewLoadable.swift in Sources */,
 				350C9AE62402A7A600BC401C /* HomeViewModel.swift in Sources */,
 				350C9AF02402B49C00BC401C /* Cell.swift in Sources */,
+				35031EED24042995007C42BB /* PartyMemberPreviewViewController.swift in Sources */,
 				351B9DEE2401B04F00546A01 /* APIError.swift in Sources */,
 				350C9AEE2402B42400BC401C /* CellBluenprint.swift in Sources */,
 			);

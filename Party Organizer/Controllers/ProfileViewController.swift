@@ -17,6 +17,7 @@ class ProfileViewController: UIViewController {
     var member: Profile!
     private let dataSourceKeys = ["Full name:", "Gender:", "email:"]
     private var dataSourceValues: [String]!
+    private let bag = DisposeBag()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,7 +33,18 @@ class ProfileViewController: UIViewController {
     }
     
     func setupActions() {
-        
+        addToPartyButton.rx.tap
+        .asDriver()
+            .throttle(RxTimeInterval.milliseconds(500))
+            .drive(onNext: { [weak self] _ in
+                guard let this = self else { return }
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                let vc = storyboard.instantiateViewController(withIdentifier: AddMemberToPartyViewController.ID) as! AddMemberToPartyViewController
+                
+                vc.member = this.member
+                this.navigationController?.show(vc, sender: self)
+            })
+        .disposed(by: bag)
     }
     
 }

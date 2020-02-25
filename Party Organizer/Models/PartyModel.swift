@@ -9,8 +9,9 @@
 import Foundation
 
 struct Party {
-    let name: String
-    let date: Date
-    let description: String
-    let members: [Profile]?
+    var id: Int
+    var name: String
+    var date: Date
+    var description: String
+    var members: [Profile] = []
 }

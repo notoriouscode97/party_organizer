@@ -45,19 +45,64 @@ class HomeViewController: UIViewController {
     
     func setupActions() {
         navigationItem.rightBarButtonItem!.rx.tap
-            .throttle(RxTimeInterval.milliseconds(500), scheduler: MainScheduler.instance)
-            .subscribe(onNext: { [weak self] _ in
-//                guard let self = self else { return }
-                //posalji ga na drugi ekran
+            .asDriver()
+            .throttle(RxTimeInterval.milliseconds(500))
+            .drive(onNext: { [weak self] _ in
+                guard let this = self else { return }
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                let vc = storyboard.instantiateViewController(withIdentifier: CRUDPartyViewController.ID) as! CRUDPartyViewController
+                vc.currentMode = .Create
+                this.navigationController?.show(vc, sender: self)
+            })
+            .disposed(by: bag)
+        
+        tableView.rx.itemSelected
+        .asDriver()
+        .throttle(RxTimeInterval.milliseconds(500))
+        .drive(onNext: { [weak self] indexPath in
+            guard let this = self, let parties = try? Parties.allParties.value() else { return }
+            let party = parties.filter{ $0.id == indexPath.row }.first
+            if let `party` = party {
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                let vc = storyboard.instantiateViewController(withIdentifier: CRUDPartyViewController.ID) as! CRUDPartyViewController
+                vc.currentMode = .ReadOrUpdate
+                vc.party = party
+                this.navigationController?.show(vc, sender: self)
+            }
+        })
+        .disposed(by: bag)
+        
+        tableView.rx.itemDeleted
+            .asDriver()
+            .drive(onNext: {
+                print($0)
+                let members = try? Members.allMembers.value()
+                let row = $0.row
+                
+                if let membersWithDeletedMember = members?.filter({ $0.id != row }) {
+                    Members.allMembers.onNext(membersWithDeletedMember)
+                }
+            })
+            .disposed(by: bag)
+        
+        noPartiesView.createPartyButton.rx.tap
+            .asDriver()
+            .throttle(RxTimeInterval.milliseconds(500))
+            .drive(onNext: { [weak self] in
+                guard let this = self else { return }
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                let vc = storyboard.instantiateViewController(withIdentifier: CRUDPartyViewController.ID) as! CRUDPartyViewController
+                vc.currentMode = .Create
+                this.navigationController?.show(vc, sender: self)
             })
             .disposed(by: bag)
     }
     
     func bind() {
-        Members.allMembers.asObservable()
+        Parties.allParties.asObservable()
             .subscribeOn(ConcurrentDispatchQueueScheduler(qos: .background))
             .observeOn(MainScheduler.instance)
-            .map{ $0.map{ HomeCellRowBlueprint(party: Party(name: $0.username ?? "Test", date: Date(), description: $0.aboutMe ?? "Test", members: nil)) } }
+            .map{ $0.map{ HomeCellRowBlueprint(party: $0) } }
             .filter{!$0.isEmpty}
             .debug("bind elementi", trimOutput: true)
             .do(onNext: { [weak self] _ in

@@ -37,7 +37,6 @@ class MembersViewController: UIViewController {
                 guard let this = self, let members = try? Members.allMembers.value() else { return }
                 let member = members.filter{ $0.id == indexPath.row }.first
                 if let `member` = member {
-                    //dodaj tu vrednost novom vc-u
                     let storyboard = UIStoryboard(name: "Main", bundle: nil)
                     let vc = storyboard.instantiateViewController(withIdentifier: ProfileViewController.ID) as! ProfileViewController
                     
